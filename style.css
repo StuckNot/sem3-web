@@ -1,0 +1,262 @@
+/* ============================================================
+   style.css  ·  the EXTERNAL stylesheet for Brew Haven
+   ============================================================
+   ✨ NEW IDEA: External CSS
+
+   Instead of writing CSS inside a <style> block in the HTML,
+   we put ALL of it in this separate .css file.
+
+   The HTML connects to it with ONE line in the <head>:
+       <link rel="stylesheet" href="style.css" />
+
+   Why do it this way?
+     • One CSS file can style MANY HTML pages.
+     • HTML stays clean (structure) and CSS stays separate (looks).
+     • This is how real websites are built.
+   ============================================================ */
+
+
+/* ✨ CSS VARIABLES — write our colours once, reuse everywhere */
+:root {
+  --cream: #fdf6ec;
+  --coffee: #4b2e2e;
+  --caramel: #c98a5e;
+  --accent: #e07a3f;
+  --text: #3a2e2a;
+  --card-bg: #ffffff;
+  --shadow: rgba(75, 46, 46, 0.15);
+}
+
+/* DARK MODE — takes over when <body> has class="dark" */
+body.dark {
+  --cream: #241c1a;
+  --coffee: #f2e4d8;
+  --text: #f2e4d8;
+  --card-bg: #352a26;
+  --shadow: rgba(0, 0, 0, 0.4);
+}
+
+
+/* GLOBAL styles — apply to the whole page */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* padding/border stay inside the box */
+}
+
+body {
+  font-family: "Segoe UI", system-ui, Arial, sans-serif;
+  background-color: var(--cream);
+  color: var(--text);
+  line-height: 1.6;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* A reusable "container" CLASS to keep content centered */
+.container {
+  max-width: 1000px;
+  margin: 0 auto;      /* auto = center horizontally */
+  padding: 0 20px;
+}
+
+
+/* ---------- HEADER + NAVIGATION ---------- */
+header {
+  background-color: var(--coffee);
+  color: var(--cream);
+  padding: 16px 0;
+  position: sticky;   /* header sticks to the top when scrolling */
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 2px 10px var(--shadow);
+}
+
+/* FLEXBOX — places the logo, menu and button in one row */
+.nav-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+nav ul {
+  list-style: none; /* remove the little bullet dots */
+  display: flex;
+  gap: 22px;
+}
+
+nav a {
+  color: var(--cream);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+nav a:hover {
+  color: var(--caramel);
+}
+
+.toggle-btn {
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+
+/* ---------- HERO (the big welcome banner) ---------- */
+.hero {
+  background: linear-gradient(135deg, var(--caramel), var(--accent));
+  color: white;
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.hero .emoji {
+  font-size: 70px;
+}
+
+.hero h1 {
+  font-size: 44px;
+  margin: 10px 0;
+}
+
+.hero p {
+  font-size: 18px;
+  max-width: 500px;
+  margin: 0 auto 24px auto;
+}
+
+.btn {
+  display: inline-block;
+  background: var(--coffee);
+  color: var(--cream);
+  padding: 12px 28px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: transform 0.2s ease;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+
+/* ---------- GENERIC SECTION SPACING ---------- */
+section {
+  padding: 60px 0;
+}
+
+/* An ID is used ONCE, for one special element */
+#about {
+  text-align: center;
+}
+
+.section-title {
+  font-size: 32px;
+  color: var(--coffee);
+  margin-bottom: 12px;
+}
+
+.section-subtitle {
+  color: var(--caramel);
+  margin-bottom: 36px;
+}
+
+
+/* ---------- FEATURE CARDS (flexbox row) ---------- */
+.cards {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;    /* cards drop to next line on small screens */
+  justify-content: center;
+}
+
+.card {
+  background: var(--card-bg);
+  border-radius: 16px;
+  padding: 30px 24px;
+  width: 280px;
+  box-shadow: 0 6px 18px var(--shadow);
+  transition: transform 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px); /* lifts up on hover */
+}
+
+.card .icon {
+  font-size: 40px;
+}
+
+.card h3 {
+  margin: 12px 0 8px 0;
+  color: var(--accent);
+}
+
+
+/* ---------- MENU TABLE ---------- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--card-bg);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px var(--shadow);
+}
+
+th, td {
+  padding: 16px;
+  text-align: left;
+  border-bottom: 1px solid var(--shadow);
+}
+
+th {
+  background: var(--coffee);
+  color: var(--cream);
+}
+
+tbody tr:hover {
+  background: var(--cream);
+}
+
+
+/* ---------- SURPRISE ME BOX (uses JavaScript) ---------- */
+.surprise {
+  text-align: center;
+  background: var(--card-bg);
+  border-radius: 16px;
+  padding: 40px 20px;
+  box-shadow: 0 6px 18px var(--shadow);
+}
+
+#drinkResult {
+  font-size: 26px;
+  color: var(--accent);
+  font-weight: bold;
+  margin-top: 18px;
+  min-height: 34px; /* keeps space reserved so layout doesn't jump */
+}
+
+
+/* ---------- FOOTER ---------- */
+footer {
+  background: var(--coffee);
+  color: var(--cream);
+  text-align: center;
+  padding: 30px 20px;
+}
+
+footer a {
+  color: var(--caramel);
+}

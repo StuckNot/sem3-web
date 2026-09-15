@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<!--
+  ============================================================
+   BREW HAVEN  ·  the TWO-FILE (split) version
+  ============================================================
+  This page has the SAME content as index.html, but notice:
+  there is NO big <style> block here anymore!
+
+  All the styling now lives in a separate file: style.css
+  We connect to it with just ONE line inside <head>:
+
+        <link rel="stylesheet" href="style.css" />
+
+  Think of it like this:
+     cafe.html   = the STRUCTURE (the bones)
+     style.css   = the LOOK      (the clothes)
+
+  Open both files side by side to see how they team up.
+-->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brew Haven ☕ | Split-File Version</title>
+
+  <!-- 👇 THIS one line pulls in ALL our styles from style.css -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- ================= HEADER + NAV ================= -->
+  <header>
+    <div class="container nav-bar">
+      <div class="logo">☕ Brew Haven</div>
+
+      <nav>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#surprise">Surprise Me</a></li>
+        </ul>
+      </nav>
+
+      <button class="toggle-btn" onclick="toggleDarkMode()">🌙 Dark Mode</button>
+    </div>
+  </header>
+
+  <!-- ================= HERO SECTION ================= -->
+  <section class="hero">
+    <div class="emoji">☕</div>
+    <h1>Welcome to Brew Haven</h1>
+    <p>Freshly brewed coffee, cozy corners, and the best place to hang out
+       between your classes.</p>
+    <a href="#menu" class="btn">See the Menu</a>
+  </section>
+
+  <!-- ================= ABOUT SECTION ================= -->
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title">Why You'll Love It Here</h2>
+      <p class="section-subtitle">Three simple reasons, three little cards.</p>
+
+      <div class="cards">
+        <div class="card">
+          <div class="icon">🌱</div>
+          <h3>Fresh Beans</h3>
+          <p>We roast our beans in small batches for a rich, smooth taste.</p>
+        </div>
+
+        <div class="card">
+          <div class="icon">📚</div>
+          <h3>Study Friendly</h3>
+          <p>Free Wi-Fi, quiet corners, and plug points at every table.</p>
+        </div>
+
+        <div class="card">
+          <div class="icon">💛</div>
+          <h3>Made with Love</h3>
+          <p>Every cup is prepared fresh by baristas who genuinely care.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= MENU SECTION (a table) ================= -->
+  <section id="menu">
+    <div class="container">
+      <h2 class="section-title" style="text-align:center;">Our Menu</h2>
+      <!--  👆 That style="..." is INLINE CSS — styling written right on
+            the tag. Even with an external file, inline CSS still works
+            (and still wins). We keep one here just to show the contrast. -->
+      <p class="section-subtitle" style="text-align:center;">
+        A few of our student favourites.
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Drink</th>
+            <th>Description</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Cappuccino</td>
+            <td>Espresso with steamed milk and a soft foam top</td>
+            <td>₹120</td>
+          </tr>
+          <tr>
+            <td>Cold Coffee</td>
+            <td>Chilled, creamy, and topped with ice cream</td>
+            <td>₹150</td>
+          </tr>
+          <tr>
+            <td>Masala Chai</td>
+            <td>Classic Indian spiced tea, brewed strong</td>
+            <td>₹60</td>
+          </tr>
+          <tr>
+            <td>Hot Chocolate</td>
+            <td>Rich cocoa with a marshmallow on top</td>
+            <td>₹130</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ================= SURPRISE ME (JavaScript demo) ================= -->
+  <section id="surprise">
+    <div class="container">
+      <div class="surprise">
+        <h2 class="section-title">Can't Decide?</h2>
+        <p>Let us pick a drink for you! Click the button.</p>
+
+        <a href="#surprise" class="btn" onclick="pickDrink()">🎲 Surprise Me</a>
+
+        <p id="drinkResult"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer>
+    <div class="container">
+      <p>📍 Near Campus Gate · Open 8 AM – 10 PM</p>
+      <p>Made with ☕ and HTML by <a href="#">Sem 3 Web Design</a></p>
+    </div>
+  </footer>
+
+  <!-- ================= JAVASCRIPT ================= -->
+  <!-- We kept the little JavaScript here inline, so today's lesson
+       stays focused on ONE new idea: the external CSS file. -->
+  <script>
+    // Switch between light and dark mode
+    function toggleDarkMode() {
+      document.body.classList.toggle("dark");
+    }
+
+    // Pick a random drink from a list (an array)
+    function pickDrink() {
+      var drinks = ["Cappuccino ☕", "Cold Coffee 🧋", "Masala Chai 🫖", "Hot Chocolate 🍫"];
+      var randomIndex = Math.floor(Math.random() * drinks.length);
+      document.getElementById("drinkResult").textContent =
+        "Try our " + drinks[randomIndex] + "!";
+    }
+  </script>
+
+</body>
+</html>
