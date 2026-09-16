@@ -18,8 +18,8 @@
 
 /* ✨ CSS VARIABLES — write our colours once, reuse everywhere */
 :root {
-  --cream: #fdf6ec;
-  --coffee: #4b2e2e;
+  --cream: #6bf217;
+  --coffee: #82080c;
   --caramel: #c98a5e;
   --accent: #e07a3f;
   --text: #3a2e2a;
@@ -173,7 +173,7 @@ section {
 }
 
 .section-subtitle {
-  color: var(--caramel);
+  color: var(--coffee);
   margin-bottom: 36px;
 }
 
