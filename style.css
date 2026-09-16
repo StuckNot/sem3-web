@@ -248,7 +248,7 @@ tbody tr:hover {
 }
 
 #drinkResult {
-  font-size: 26px;
+  font-size: 36px;
   color: var(--accent);
   font-weight: bolder;
   margin-top: 18px;
